@@ -3,6 +3,11 @@ import { useState } from "react";
 export default function Modal({ onSubmit, onClose }) {
   const [name, setName] = useState("");
   const [days, setDays] = useState([]);
+  const [errorMsg, setErrorMsg] = useState();
+
+  function hasNameAndSurname(str) {
+    return /^[A-Za-zĂÂÎȘȚăâîșț]+ [A-Za-zĂÂÎȘȚăâîșț]+$/.test(str);
+  }
 
   const handleDayChange = (day) => {
     setDays((prev) =>
@@ -11,8 +16,14 @@ export default function Modal({ onSubmit, onClose }) {
   };
 
   const handleSubmit = () => {
-    if (name && days.length) {
-      onSubmit(name, days);
+    if(hasNameAndSurname(name)) {
+        if(days?.length){
+            onSubmit(name, days);
+        } else {
+            setErrorMsg('Te rog să selectezi măcar o zi.')
+        }
+    } else {
+        setErrorMsg('Te rog să introduci numele tău, urmat de un spațiu și prenumele tău. Nu folosi emoji, cifre sau alte simboluri :)')
     }
   };
 
@@ -22,7 +33,7 @@ export default function Modal({ onSubmit, onClose }) {
         <h2 className="modal-title">Înscrie-te</h2>
         <input
           type="text"
-          placeholder="Numele tău"
+          placeholder="Nume si Prenume"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="input-field"
@@ -40,6 +51,7 @@ export default function Modal({ onSubmit, onClose }) {
             </label>
           ))}
         </div>
+        <p className="error-message">{errorMsg}</p>
         <div className="modal-actions">
           <button onClick={onClose} className="cancel-button">
             Anulează

@@ -196,3 +196,18 @@ body {
   .checkbox-input-modal {
     margin-right: 10px;
   }
+
+  /* Error Message */
+  .error-message {
+    color: red;
+  }
+
+  @media (max-width: 600px) {
+    .modal-container {
+        margin: 20px;
+    }
+
+    .tab-container {
+        margin: 20px;
+    }
+  }
