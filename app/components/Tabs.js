@@ -30,7 +30,6 @@ export default function Tabs({ players }) {
                       <td>{p.name}</td>
                       <td>
                         {new Date(p.timestamp).toLocaleDateString("ro-RO", {
-                          weekday: "long", // Ziua săptămânii complet (ex: Joi)
                           day: "numeric", // Ziua (ex: 2)
                           month: "long", // Luna complet (ex: Februarie)
                         })}{" "}
