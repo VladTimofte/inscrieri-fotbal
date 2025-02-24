@@ -89,7 +89,8 @@ body {
   }
   
   .cancel-button, .submit-button {
-    padding: 10px 15px;
+    padding: 12px 24px;
+    font-size: 18px;
     cursor: pointer;
     background: #5f3333;
     color: white;

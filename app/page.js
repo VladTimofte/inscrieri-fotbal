@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <main className="container">
       <h1 className="title">{t.title}</h1>
-      <button onClick={() => setIsOpen(true)} className="signup-button sticky-button">
+      <button onClick={() => setIsOpen(true)} className="sticky-button">
         {t.signup}
       </button>
       <Tabs players={players} />
