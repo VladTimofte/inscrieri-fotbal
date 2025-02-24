@@ -58,7 +58,7 @@ body {
     background: #1a1a1a;
     color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -129,7 +129,7 @@ body {
     width: 100%;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
   }
   
@@ -215,12 +215,10 @@ body {
   /* lang-switcher-wrapper */
   .lang-switcher-wrapper-span {
     position: fixed;
+    margin: 0;
     bottom: 20px;
     left: 20px;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease;
-    font-size: 18px;
   }
