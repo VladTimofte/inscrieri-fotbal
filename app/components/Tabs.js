@@ -1,24 +1,23 @@
+import { useTranslation } from "../TranslationProvider"; 
+
 export default function Tabs({ players }) {
+  const { t, language } = useTranslation();
   const days = ["Marti", "Joi"];
 
-  function test() {
-    console.log(players);
-  }
 
-  test();
 
   return (
     <div>
       {days.map((day) => (
         <div key={day} className="tab-container">
-          <h2 className="tab-title">{day}</h2>
+          <h2 className="tab-title">{day === 'Marti' ? t.tuesday : t.thursday}</h2>
           <div className="table-wrapper">
             <table className="custom-table">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Nume</th>
-                  <th>Data când te-ai înscris</th>
+                  <th>{t.name}</th>
+                  <th>{t.registerDate}</th>
                 </tr>
               </thead>
               <tbody>
@@ -29,12 +28,12 @@ export default function Tabs({ players }) {
                       <td>{index + 1}</td>
                       <td>{p.name}</td>
                       <td>
-                        {new Date(p.timestamp).toLocaleDateString("ro-RO", {
+                        {new Date(p.timestamp).toLocaleDateString(`${language}-${language.toUpperCase()}`, {
                           day: "numeric", // Ziua (ex: 2)
                           month: "long", // Luna complet (ex: Februarie)
                         })}{" "}
                         |{" "}
-                        {new Date(p.timestamp).toLocaleTimeString("ro-RO", {
+                        {new Date(p.timestamp).toLocaleTimeString(`${language}-${language.toUpperCase()}`, {
                           hour: "2-digit",
                           minute: "2-digit",
                           second: "2-digit",

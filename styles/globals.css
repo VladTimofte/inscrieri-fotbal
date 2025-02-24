@@ -174,7 +174,7 @@ body {
     background: #34495e;
     color: white;
     border: none;
-    border-radius: 50px;
+    border-radius: 12px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease;
@@ -210,4 +210,17 @@ body {
     .tab-container {
         margin: 20px;
     }
+  }
+
+  /* lang-switcher-wrapper */
+  .lang-switcher-wrapper-span {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    font-size: 18px;
   }

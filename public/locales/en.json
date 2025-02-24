@@ -1,0 +1,13 @@
+{
+  "title": "Football Registration",
+  "signup": "Sign up",
+  "name": "Name",
+  "registerDate": "Date when you registered:",
+  "selectAtLeastOneDay": "Please select at least one day.",
+  "enterFullName": "Please enter your first name, followed by a space and your last name.",
+  "fullName": "Full Name",
+  "cancel": "Cancel",
+  "ok": "OK",
+  "tuesday": "Tuesday",
+  "thursday": "Thursday"
+}

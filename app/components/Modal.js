@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useTranslation } from "../TranslationProvider"; 
 
 export default function Modal({ onSubmit, onClose }) {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [days, setDays] = useState([]);
   const [errorMsg, setErrorMsg] = useState();
 
   function hasNameAndSurname(str) {
-    return /^[A-Za-zĂÂÎȘȚăâîșț]+ [A-Za-zĂÂÎȘȚăâîșț]+$/.test(str);
+    return str.includes(" ");
   }
 
   const handleDayChange = (day) => {
@@ -20,26 +22,26 @@ export default function Modal({ onSubmit, onClose }) {
         if(days?.length){
             onSubmit(name, days);
         } else {
-            setErrorMsg('Te rog să selectezi măcar o zi.')
+            setErrorMsg(t.selectAtLeastOneDay)
         }
     } else {
-        setErrorMsg('Te rog să introduci numele tău, urmat de un spațiu și prenumele tău. Nu folosi emoji, cifre sau alte simboluri :)')
+        setErrorMsg(t.enterFullName)
     }
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        <h2 className="modal-title">Înscrie-te</h2>
+        <h2 className="modal-title">{t.signup}</h2>
         <input
           type="text"
-          placeholder="Nume si Prenume"
+          placeholder={t.fullName}
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="input-field"
         />
         <div>
-          {["Marti", "Joi"].map((day) => (
+          {['Marti', 'Joi'].map((day) => (
             <label key={day} className="checkbox-label">
               <input
                 className="checkbox-input-modal"
@@ -47,17 +49,17 @@ export default function Modal({ onSubmit, onClose }) {
                 value={day}
                 onChange={() => handleDayChange(day)}
               />
-              {day}
+              {day === 'Marti' ? t.tuesday : t.thursday}
             </label>
           ))}
         </div>
         <p className="error-message">{errorMsg}</p>
         <div className="modal-actions">
           <button onClick={onClose} className="cancel-button">
-            Anulează
+            {t.cancel}
           </button>
           <button onClick={handleSubmit} className="submit-button">
-            OK
+            {t.ok}
           </button>
         </div>
       </div>

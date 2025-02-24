@@ -1,0 +1,13 @@
+{
+  "title": "Înscriere Fotbal",
+  "signup": "Înscrie-te",
+  "name": "Nume",
+  "registerDate": "Data când te-ai înscris:",
+  "selectAtLeastOneDay": "Te rog să selectezi măcar o zi.",
+  "enterFullName": "Te rog să introduci numele tău, urmat de un spațiu și prenumele tău.",
+  "fullName": "Nume și Prenume",
+  "cancel": "Anulează",
+  "ok": "OK",
+  "tuesday": "Marți",
+  "thursday": "Joi"
+}

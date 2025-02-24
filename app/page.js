@@ -1,11 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { db } from "../lib/firebase";
+import { useTranslation } from "./TranslationProvider"; 
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
 import Tabs from "../app/components/Tabs";
 import Modal from "../app/components/Modal";
+import LanguageSwitcher from "../app/components/LanguageSwitcher";
 
 export default function Home() {
+  const { t } = useTranslation();
   const [players, setPlayers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,12 +43,13 @@ export default function Home() {
 
   return (
     <main className="container">
-      <h1 className="title">Înscriere Fotbal</h1>
+      <h1 className="title">{t.title}</h1>
       <button onClick={() => setIsOpen(true)} className="signup-button sticky-button">
-        Înscrie-te
+        {t.signup}
       </button>
       <Tabs players={players} />
       {isOpen && <Modal onSubmit={handleSignup} onClose={() => setIsOpen(false)} />}
+      <LanguageSwitcher />
     </main>
   );
 }
