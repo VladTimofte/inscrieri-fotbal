@@ -79,7 +79,7 @@ body {
   .checkbox-label {
     font-size: 18px;
     display: block;
-    margin: 5px 0;
+    margin: 20px 0;
   }
   
   .modal-actions {
@@ -235,8 +235,8 @@ body {
   .password-container input[type="password"] {
     padding: 12px 20px;
     font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
+    border: none;
+    border-radius: 12px;
     text-align: center;
     outline: none;
     width: 300px;
@@ -252,7 +252,7 @@ body {
     padding: 12px 24px;
     font-size: 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: #34495e;
     color: white;
     cursor: pointer;
