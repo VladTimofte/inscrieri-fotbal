@@ -1,5 +1,7 @@
 import "../styles/globals.css";
 import { TranslationProvider } from "./TranslationProvider";
+import PasswordProtection from "./components/PasswordProtection";
+import LanguageSwitcher from "../app/components/LanguageSwitcher";
 
 export const metadata = {
   title: "Înscriere Fotbal",
@@ -13,7 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ro">
       <body>
-        <TranslationProvider>{children}</TranslationProvider>
+        <TranslationProvider>
+          <PasswordProtection>{children}</PasswordProtection>
+          <LanguageSwitcher />
+        </TranslationProvider>
       </body>
     </html>
   );

@@ -5,7 +5,6 @@ import { useTranslation } from "./TranslationProvider";
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
 import Tabs from "../app/components/Tabs";
 import Modal from "../app/components/Modal";
-import LanguageSwitcher from "../app/components/LanguageSwitcher";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -49,7 +48,6 @@ export default function Home() {
       </button>
       <Tabs players={players} />
       {isOpen && <Modal onSubmit={handleSignup} onClose={() => setIsOpen(false)} />}
-      <LanguageSwitcher />
     </main>
   );
 }

@@ -9,5 +9,8 @@
   "cancel": "Anulează",
   "ok": "OK",
   "tuesday": "Marți",
-  "thursday": "Joi"
+  "thursday": "Joi",
+  "wrongPassword": "Parolă greșită!",
+  "passwordPlaceholder": "Parola",
+  "login": "Intră în aplicație"
 }

@@ -9,5 +9,8 @@
   "cancel": "Cancel",
   "ok": "OK",
   "tuesday": "Tuesday",
-  "thursday": "Thursday"
+  "thursday": "Thursday",
+  "wrongPassword": "Wrong Password!",
+  "passwordPlaceholder": "Password",
+  "login": "Login"
 }
