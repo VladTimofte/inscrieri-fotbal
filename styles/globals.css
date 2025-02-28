@@ -225,6 +225,11 @@ body {
     bottom: 70px;
   }
 
+  .exit-icon-wrapper img {
+    background: white;
+    border-radius: 50%;
+  }
+
   /* Password container */
   .password-container {
     display: flex;

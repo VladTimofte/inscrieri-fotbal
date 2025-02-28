@@ -20,7 +20,7 @@ export default function Logout() {
     <>
       {isUserLoggedIN ? (
         <div className="exit-icon-wrapper" onClick={logout}>
-          <Image width={32} height={32} src="/exit.png" alt="Exit" />
+          <Image width={32} height={32} src="/turn-off.png" alt="Exit" />
         </div>
       ) : null}
     </>
