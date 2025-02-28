@@ -6,6 +6,7 @@ import { collection, addDoc, query, getDocs } from "firebase/firestore";
 import Tabs from "../app/components/Tabs";
 import Modal from "../app/components/Modal";
 import { generateRandomId } from "./utility/strings";
+import Logout from "./components/Logout";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -15,7 +16,10 @@ export default function Home() {
   const fetchPlayers = async () => {
     const q = query(collection(db, "players"));
     const querySnapshot = await getDocs(q);
-    const playersData = querySnapshot.docs.map((doc) => doc.data());
+    const playersData = querySnapshot.docs.map((doc) => ({
+      firebaseDocID: doc.id, // 🔥 Adaugă ID-ul real al documentului din Firestore
+      ...doc.data(), // Adaugă restul datelor jucătorului
+    }));
 
     // Sortează jucătorii separat pentru fiecare zi, folosind timestamp-ul în format epoch
     const sortedPlayers = playersData.sort((a, b) => a.timestamp - b.timestamp);
@@ -48,8 +52,9 @@ export default function Home() {
       <button onClick={() => setIsOpen(true)} className="sticky-button">
         {t.signup}
       </button>
-      <Tabs players={players} />
+      <Tabs players={players} fetchPlayers={fetchPlayers} />
       {isOpen && <Modal onSubmit={handleSignup} onClose={() => setIsOpen(false)} />}
+      <Logout />
     </main>
   );
 }

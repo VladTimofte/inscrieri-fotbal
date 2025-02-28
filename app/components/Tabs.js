@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import DeleteButton from "./DeleteButton";
 import { getUserRole } from "../context/role";
 
-export default function Tabs({ players }) {
+export default function Tabs({ players, fetchPlayers }) {
   const { t, language } = useTranslation();
   const [isAdmin, setIsAdmin] = useState();
   const days = ["Marti", "Joi"];
@@ -12,17 +12,21 @@ export default function Tabs({ players }) {
     setIsAdmin(getUserRole() === "admin");
   }, []);
 
-  function handleDelete() {
-    console.log("deleted");
-  }
-
   return (
     <div>
       {days.map((day) => (
         <div key={day} className="tab-container">
-          <h2 className="tab-title">
-            {day === "Marti" ? t.tuesday : t.thursday}
-          </h2>
+          {day === "Marti" ? (
+            <>
+              <h2 className="tab-title">{t.tuesday}</h2>
+              <h3>{t.tuesdayDetails}</h3>
+            </>
+          ) : (
+            <>
+              <h2 className="tab-title">{t.thursday}</h2>
+              <h3>{t.thursdayDetails}</h3>
+            </>
+          )}
           <div className="table-wrapper">
             <table className="custom-table">
               <thead>
@@ -61,11 +65,7 @@ export default function Tabs({ players }) {
                       </td>
                       {isAdmin ? (
                         <td>
-                          <DeleteButton
-                            playerId={p.id}
-                            playerName={p.name}
-                            onDelete={handleDelete}
-                          />
+                          <DeleteButton player={p} onDelete={fetchPlayers} />
                         </td>
                       ) : null}
                     </tr>

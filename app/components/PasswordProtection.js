@@ -9,22 +9,27 @@ export default function PasswordProtection({ children }) {
   const { t } = useTranslation();
   const [authorized, setAuthorized] = useState(false);
   const [inputPassword, setInputPassword] = useState("");
+  const [selectedRole, setSelectedRole] = useState("user"); // 🔥 Default: Jucător
 
   useEffect(() => {
     const storedPassword = sessionStorage.getItem("appPassword");
-    // const hostURL = window.location.origin;
-    if (storedPassword === userPassword) {
+    if (storedPassword === userPassword || storedPassword === adminPassword) {
       setAuthorized(true);
     }
   }, []);
 
   const handleSubmit = () => {
-    if (inputPassword === userPassword) {
+    if (!inputPassword) {
+      alert(t.passwordRequired);
+      return;
+    }
+
+    if (selectedRole === "user" && inputPassword === userPassword) {
       sessionStorage.setItem("appPassword", userPassword);
       sessionStorage.setItem("userRole", "user");
       setAuthorized(true);
-    } else if (inputPassword === adminPassword) {
-      sessionStorage.setItem("appPassword", userPassword);
+    } else if (selectedRole === "admin" && inputPassword === adminPassword) {
+      sessionStorage.setItem("appPassword", adminPassword);
       sessionStorage.setItem("userRole", "admin");
       setAuthorized(true);
     } else {
@@ -35,13 +40,31 @@ export default function PasswordProtection({ children }) {
   if (!authorized) {
     return (
       <div className="password-container">
+        <div className="role-buttons">
+          <button
+            className={selectedRole === "user" ? "active" : ""}
+            onClick={() => setSelectedRole("user")}
+          >
+            {t.userRolePlayer}
+          </button>
+          <button
+            className={selectedRole === "admin" ? "active" : ""}
+            onClick={() => setSelectedRole("admin")}
+          >
+            {t.userRoleAdmin}
+          </button>
+        </div>
+
         <input
           type="password"
           placeholder={t.passwordPlaceholder}
           value={inputPassword}
           onChange={(e) => setInputPassword(e.target.value)}
         />
-        <button onClick={handleSubmit}>{t.login}</button>
+
+        <button className="login-btn" onClick={handleSubmit}>
+          {t.login}
+        </button>
       </div>
     );
   }

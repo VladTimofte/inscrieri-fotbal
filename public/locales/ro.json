@@ -8,9 +8,13 @@
   "fullName": "Nume și Prenume",
   "cancel": "Anulează",
   "ok": "OK",
-  "tuesday": "Marți | Nojorid| 4 Martie | 22:00 ",
-  "thursday": "Joi | Santandrei | 6 Martie | 22:00 | 12 Jucatori max.",
+  "tuesday": "Marți",
+  "thursday": "Joi",
+  "tuesdayDetails": "Nojorid | 4 Martie | 22:00",
+  "thursdayDetails": "Santandrei | 6 Martie | 22:00 | 12 Jucatori max.",
   "wrongPassword": "Parolă greșită!",
   "passwordPlaceholder": "Parola",
-  "login": "Intră în aplicație"
+  "login": "Intră în aplicație",
+  "userRolePlayer": "Jucator",
+  "userRoleAdmin": "Admin"
 }

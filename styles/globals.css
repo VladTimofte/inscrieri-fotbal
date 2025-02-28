@@ -21,7 +21,7 @@ body {
   }
   
   .tab-container {
-    margin: 20px;
+    margin: 100px 20px;
   }
   
   .tab-title {
@@ -110,9 +110,6 @@ body {
 
 
   /* Tabs container styling */
-.tab-container {
-    margin: 20px 0;
-  }
   
   .tab-title {
     font-size: 24px;
@@ -209,12 +206,12 @@ body {
     }
 
     .tab-container {
-        margin: 20px;
+      margin: 100px 20px;
     }
   }
 
   /* lang-switcher-wrapper */
-  .lang-switcher-wrapper-span {
+  .lang-switcher-wrapper-span, .exit-icon-wrapper {
     position: fixed;
     margin: 0;
     bottom: 20px;
@@ -222,6 +219,10 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+  }
+
+  .exit-icon-wrapper {
+    bottom: 70px;
   }
 
   /* Password container */
@@ -264,3 +265,47 @@ body {
     background-color: #34495e;
   }
 
+  .delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+  }
+
+  .delete-button:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+  }
+  
+  /* Butoane pentru alegerea rolului */
+  .role-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+  
+  .role-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #34495e;
+    background: white;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .role-buttons button.active {
+    background: #34495e;
+    color: white;
+  }
+  
+  .role-buttons button:hover {
+    background: #34495e;
+    color: white;
+  }
+  
