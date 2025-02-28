@@ -1,25 +1,31 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useTranslation } from "../TranslationProvider"; 
+import { useTranslation } from "../TranslationProvider";
 
-const correctPassword = process.env.NEXT_PUBLIC_LOGIN_PASSWORD;
+const userPassword = process.env.NEXT_PUBLIC_USER_PASSWORD;
+const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
 
 export default function PasswordProtection({ children }) {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const [authorized, setAuthorized] = useState(false);
   const [inputPassword, setInputPassword] = useState("");
 
   useEffect(() => {
     const storedPassword = sessionStorage.getItem("appPassword");
-    const hostURL = window.location.origin;
-    if ((storedPassword === correctPassword) || (hostURL === 'http://localhost:3000')) {
+    // const hostURL = window.location.origin;
+    if (storedPassword === userPassword) {
       setAuthorized(true);
     }
   }, []);
 
   const handleSubmit = () => {
-    if (inputPassword === correctPassword) {
-        sessionStorage.setItem("appPassword", correctPassword);
+    if (inputPassword === userPassword) {
+      sessionStorage.setItem("appPassword", userPassword);
+      sessionStorage.setItem("userRole", "user");
+      setAuthorized(true);
+    } else if (inputPassword === adminPassword) {
+      sessionStorage.setItem("appPassword", userPassword);
+      sessionStorage.setItem("userRole", "admin");
       setAuthorized(true);
     } else {
       alert(t.wrongPassword);

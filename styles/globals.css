@@ -58,7 +58,7 @@ body {
     background: #1a1a1a;
     color: white;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 8px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -71,7 +71,7 @@ body {
     padding: 10px;
     font-size: 18px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     min-width: 300px;
     
   }
@@ -88,21 +88,21 @@ body {
     justify-content: space-between;
   }
   
-  .cancel-button, .submit-button {
+  .cancel-button, .submit-button, .confirm-button {
     padding: 12px 24px;
     font-size: 18px;
     cursor: pointer;
     background: #5f3333;
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
   }
   
-  .submit-button {
+  .submit-button, .confirm-button {
     background: #34495e;
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
 
@@ -130,7 +130,7 @@ body {
     width: 100%;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
   }
   
@@ -175,7 +175,7 @@ body {
     background: #34495e;
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease;
@@ -220,7 +220,7 @@ body {
     bottom: 20px;
     left: 20px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     cursor: pointer;
   }
 
@@ -236,7 +236,7 @@ body {
     padding: 12px 20px;
     font-size: 16px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     text-align: center;
     outline: none;
     width: 300px;
@@ -252,7 +252,7 @@ body {
     padding: 12px 24px;
     font-size: 16px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: #34495e;
     color: white;
     cursor: pointer;
@@ -263,3 +263,4 @@ body {
   .password-container button:hover {
     background-color: #34495e;
   }
+

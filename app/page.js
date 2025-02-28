@@ -5,6 +5,7 @@ import { useTranslation } from "./TranslationProvider";
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
 import Tabs from "../app/components/Tabs";
 import Modal from "../app/components/Modal";
+import { generateRandomId } from "./utility/strings";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ export default function Home() {
 
     for (const day of days) {
       await addDoc(collection(db, "players"), {
+        id: generateRandomId(),
         name,
         day,
         timestamp,
