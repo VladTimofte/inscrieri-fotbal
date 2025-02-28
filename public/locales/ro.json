@@ -8,8 +8,8 @@
   "fullName": "Nume și Prenume",
   "cancel": "Anulează",
   "ok": "OK",
-  "tuesday": "Marți | Nojorid| 4 Martie | 22:00",
-  "thursday": "Joi | Santandrei | 6 Martie | 22:00",
+  "tuesday": "Marți | Nojorid| 4 Martie | 22:00 | 12 Jucatori max.",
+  "thursday": "Joi | Santandrei | 6 Martie | 22:00 | 12 Jucatori max.",
   "wrongPassword": "Parolă greșită!",
   "passwordPlaceholder": "Parola",
   "login": "Intră în aplicație"
