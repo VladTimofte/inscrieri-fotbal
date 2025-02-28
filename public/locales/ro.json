@@ -1,5 +1,5 @@
 {
-  "title": "Înscriere Fotbal - Mod Testare",
+  "title": "Înscriere Fotbal",
   "signup": "Înscrie-te",
   "name": "Nume",
   "registerDate": "Data când te-ai înscris:",
@@ -8,8 +8,8 @@
   "fullName": "Nume și Prenume",
   "cancel": "Anulează",
   "ok": "OK",
-  "tuesday": "Marți",
-  "thursday": "Joi",
+  "tuesday": "Marți | Nojorid| 4 Martie | 22:00",
+  "thursday": "Joi | Santandrei | 6 Martie | 22:00",
   "wrongPassword": "Parolă greșită!",
   "passwordPlaceholder": "Parola",
   "login": "Intră în aplicație"
