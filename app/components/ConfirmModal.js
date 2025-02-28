@@ -1,7 +1,10 @@
 "use client";
 import { useEffect } from "react";
+import { useTranslation } from "../TranslationProvider";
 
 export default function ConfirmModal({ isOpen, onClose, onConfirm, playerName }) {
+    const { t } = useTranslation();
+
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape") {
@@ -23,7 +26,7 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm, playerName })
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        <p>Sigur dorești să ștergi: <strong>{playerName}</strong>?</p>
+        <p>{t.confirmPlayerDelete}<strong>{playerName}</strong>?</p>
         <div className="modal-actions">
           <button className="cancel-button" onClick={onClose}>Nu</button>
           <button className="confirm-button" onClick={onConfirm}>Da</button>

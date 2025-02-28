@@ -16,5 +16,6 @@
   "passwordPlaceholder": "Password",
   "login": "Login",
   "userRolePlayer": "Player",
-  "userRoleAdmin": "Admin"
+  "userRoleAdmin": "Admin",
+  "confirmPlayerDelete": "Are you sure you want to delete? -  "
 }

@@ -16,5 +16,6 @@
   "passwordPlaceholder": "Parola",
   "login": "Intră în aplicație",
   "userRolePlayer": "Jucator",
-  "userRoleAdmin": "Admin"
+  "userRoleAdmin": "Admin",
+  "confirmPlayerDelete": "Sigur doresti sa stergi? -  "
 }
