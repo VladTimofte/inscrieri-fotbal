@@ -213,7 +213,7 @@ body {
   /* lang-switcher-wrapper */
   .lang-switcher-wrapper-span, .exit-icon-wrapper {
     position: fixed;
-    margin: 0;
+    margin: 0 !important;
     bottom: 20px;
     left: 20px;
     border: none;
