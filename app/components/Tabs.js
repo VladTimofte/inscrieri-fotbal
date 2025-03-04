@@ -27,52 +27,57 @@ export default function Tabs({ players, fetchPlayers }) {
               <h3>{t.thursdayDetails}</h3>
             </>
           )}
-          <div className="table-wrapper">
-            <table className="custom-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>{t.name}</th>
-                  <th>{t.registerDate}</th>
-                  {isAdmin ? <th></th> : null}
-                </tr>
-              </thead>
-              <tbody>
-                {players
-                  .filter((p) => p.day === day)
-                  .map((p, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>{p.name}</td>
-                      <td>
-                        {new Date(p.timestamp).toLocaleDateString(
-                          `${language}-${language.toUpperCase()}`,
-                          {
-                            day: "numeric", // Ziua (ex: 2)
-                            month: "long", // Luna complet (ex: Februarie)
-                          }
-                        )}{" "}
-                        |{" "}
-                        {new Date(p.timestamp).toLocaleTimeString(
-                          `${language}-${language.toUpperCase()}`,
-                          {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                            second: "2-digit",
-                            hour12: false, // Format 24H
-                          }
-                        )}
-                      </td>
-                      {isAdmin ? (
+          {day === "Marti" ? (
+            <h1>ANULAT / CANCELED</h1>
+          ) : (
+            <div className="table-wrapper">
+              <table className="custom-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>{t.name}</th>
+                    <th>{t.registerDate}</th>
+                    {isAdmin ? <th></th> : null}
+                  </tr>
+                </thead>
+                <tbody>
+                  {players
+                    .filter((p) => p.day === day)
+                    .map((p, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{p.name}</td>
                         <td>
-                          <DeleteButton player={p} onDelete={fetchPlayers} />
+                          {new Date(p.timestamp).toLocaleDateString(
+                            `${language}-${language.toUpperCase()}`,
+                            {
+                              day: "numeric", // Ziua (ex: 2)
+                              month: "long", // Luna complet (ex: Februarie)
+                            }
+                          )}{" "}
+                          |{" "}
+                          {new Date(p.timestamp).toLocaleTimeString(
+                            `${language}-${language.toUpperCase()}`,
+                            {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              second: "2-digit",
+                              hour12: false, // Format 24H
+                            }
+                          )}
                         </td>
-                      ) : null}
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </div>
+                        {isAdmin ? (
+                          <td>
+                            <DeleteButton player={p} onDelete={fetchPlayers} />
+                          </td>
+                        ) : null}
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
           <br></br>
           <br></br>
         </div>
