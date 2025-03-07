@@ -18,6 +18,12 @@ export default function PasswordProtection({ children }) {
     }
   }, []);
 
+  const handleInput = (e) => {
+    if (e?.keyCode === 13) {
+      handleSubmit();
+    }
+  };
+
   const handleSubmit = () => {
     if (!inputPassword) {
       alert(t.passwordRequired);
@@ -59,7 +65,8 @@ export default function PasswordProtection({ children }) {
           type="password"
           placeholder={t.passwordPlaceholder}
           value={inputPassword}
-          onChange={(e) => setInputPassword(e.target.value)}
+          onChange={e => setInputPassword(e?.target?.value)}
+          onKeyDown={e => handleInput(e)}
         />
 
         <button className="login-btn" onClick={handleSubmit}>

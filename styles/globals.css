@@ -313,4 +313,8 @@ body {
     background: #34495e;
     color: white;
   }
+
+  .substitute-playet-row {
+    background: rgba(255, 166, 0, 0.514) !important;
+  }
   
