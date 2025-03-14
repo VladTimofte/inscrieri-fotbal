@@ -20,11 +20,13 @@ export default function Tabs({ players, fetchPlayers }) {
             <>
               <h2 className="tab-title">{t.tuesday}</h2>
               <h3>{t.tuesdayDetails}</h3>
+              <h4 className="max-players ">{t.tuesdayMaxNumberPlayers}</h4>
             </>
           ) : (
             <>
               <h2 className="tab-title">{t.thursday}</h2>
               <h3>{t.thursdayDetails}</h3>
+              <h4 className="max-players ">{t.thursdayMaxNumberPlayers}</h4>
             </>
           )}
           <div className="table-wrapper">

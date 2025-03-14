@@ -315,6 +315,10 @@ body {
   }
 
   .substitute-playet-row {
-    background: rgba(255, 166, 0, 0.514) !important;
+    background: #ffa60083 !important;
+  }
+
+  .max-players {
+    color: #ffa600;
   }
   
