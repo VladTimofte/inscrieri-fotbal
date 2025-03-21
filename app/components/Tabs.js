@@ -44,7 +44,12 @@ export default function Tabs({ players, fetchPlayers }) {
                   .filter((p) => p.day === day)
                   .map((p, index) => (
                     <tr
-                    className={`${index + 1 > 12 ? "substitute-playet-row" : ""}`}
+                      className={`${
+                        (index + 1 > 6 && day === "Marti") ||
+                        (index + 1 > 12 && day !== "Marti")
+                          ? "substitute-playet-row"
+                          : ""
+                      }`}
                       key={index}
                     >
                       <td>{index + 1}</td>
