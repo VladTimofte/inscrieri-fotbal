@@ -45,8 +45,7 @@ export default function Tabs({ players, fetchPlayers }) {
                   .map((p, index) => (
                     <tr
                       className={`${
-                        (index + 1 > 6 && day === "Marti") ||
-                        (index + 1 > 12 && day !== "Marti")
+                        (index + 1 > 12)
                           ? "substitute-playet-row"
                           : ""
                       }`}
