@@ -83,6 +83,7 @@ export default function Home() {
   };
 
   const handleResetAndCreateList = async (data) => {
+    debugger
     try {
 
       for (const item of data) {
