@@ -1,5 +1,5 @@
 {
-  "title": "Înscriere Fotbal",
+  "title": "Hai la meci",
   "signup": "Înscrie-te",
   "name": "Nume",
   "registerDate": "Data când te-ai înscris:",
@@ -19,5 +19,18 @@
   "login": "Intră în aplicație",
   "userRolePlayer": "Jucator",
   "userRoleAdmin": "Admin",
-  "confirmPlayerDelete": "Sigur doresti sa stergi? -  "
+  "confirmPlayerDelete": "Sigur doresti sa stergi? -  ",
+  "timeRequired": "Ora este obligatorie pentru",
+  "maxPlayersRequired": "Numărul maxim de jucători este obligatoriu pentru",
+  "locationRequired": "Locația este obligatorie pentru",
+  "confirmReset": "Te rog sa confirmi resetarea",
+  "createNewLists": "Crează liste noi",
+  "addDays": "Adaugă zile:",
+  "time": "Ora",
+  "maxPlayers": "Max jucători",
+  "location": "Locație",
+  "deleteDay": "Șterge ziua",
+  "confirmResetCurrentList": "Confirmă resetarea listei curente existente",
+  "save": "Salvează",
+  "noEvents": "Niciun eveniment"
 }

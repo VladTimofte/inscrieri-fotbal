@@ -1,5 +1,5 @@
 {
-  "title": "Football Sign In",
+  "title": "Football",
   "signup": "Sign in",
   "name": "Name",
   "registerDate": "Date when you registered:",
@@ -19,5 +19,18 @@
   "login": "Login",
   "userRolePlayer": "Player",
   "userRoleAdmin": "Admin",
-  "confirmPlayerDelete": "Are you sure you want to delete? -  "
+  "confirmPlayerDelete": "Are you sure you want to delete? -  ",
+  "timeRequired": "Time is required for",
+  "maxPlayersRequired": "Maximum number of players is required for",
+  "locationRequired": "Location is required for",
+  "confirmReset": "Please confirm the reset",
+  "createNewLists": "Create new lists",
+  "addDays": "Add days:",
+  "time": "Time",
+  "maxPlayers": "Max players",
+  "location": "Location",
+  "deleteDay": "Delete day",
+  "confirmResetCurrentList": "Confirm the reset of the current existing list",
+  "save": "Save",
+  "noEvents": "No events"
 }

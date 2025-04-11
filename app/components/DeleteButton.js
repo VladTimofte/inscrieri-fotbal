@@ -1,21 +1,35 @@
 "use client";
 import { useState } from "react";
 import { db } from "../../lib/firebase";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import ConfirmModal from "./ConfirmModal";
 import Image from "next/image";
 
-export default function DeleteButton({ player, onDelete }) {
+export default function DeleteButton({ player, day, onDelete, isDayDelete = false, dayLabel }) {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleDelete = async () => {
     try {
-      await deleteDoc(doc(db, "players", player.firebaseDocID));
-      onDelete(player.id); // Actualizează tabelul în frontend
+      if (isDayDelete) {
+        await deleteDoc(doc(db, "data", day));
+      } else {
+        const dayRef = doc(db, "data", day);
+        const snapshot = await getDoc(dayRef);
+        if (!snapshot.exists()) throw new Error("Ziua nu există în Firebase");
+
+        const dayData = snapshot.data();
+        const updatedPlayers = (dayData.players || []).filter(
+          (p) => p.id !== player.id
+        );
+
+        await updateDoc(dayRef, { players: updatedPlayers });
+      }
+
+      onDelete();
       setModalOpen(false);
     } catch (error) {
       console.error("Eroare la ștergere:", error);
-      alert('Something went wrong...')
+      alert("Ceva n-a mers bine la ștergere...");
     }
   };
 
@@ -29,7 +43,8 @@ export default function DeleteButton({ player, onDelete }) {
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
         onConfirm={handleDelete}
-        playerName={player?.name}
+        playerName={isDayDelete ? null : player?.name}
+        dayLabel={dayLabel}
       />
     </>
   );

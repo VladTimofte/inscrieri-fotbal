@@ -1,55 +1,66 @@
 import { useTranslation } from "../TranslationProvider";
-import { useState, useEffect } from "react";
 import DeleteButton from "./DeleteButton";
-import { getUserRole } from "../context/role";
 
-export default function Tabs({ players, fetchPlayers }) {
+export default function Tabs({ isAdmin, data, fetchData }) {
   const { t, language } = useTranslation();
-  const [isAdmin, setIsAdmin] = useState();
-  const days = ["Marti", "Joi"];
-
-  useEffect(() => {
-    setIsAdmin(getUserRole() === "admin");
-  }, []);
+  const sortedDays = [...data].sort((a, b) => a.date.localeCompare(b.date));
 
   return (
     <div>
-      {days.map((day) => (
-        <div key={day} className="tab-container">
-          {day === "Marti" ? (
-            <>
-              <h2 className="tab-title">{t.tuesday}</h2>
-              <h3>{t.tuesdayDetails}</h3>
-              <h4 className="max-players ">{t.tuesdayMaxNumberPlayers}</h4>
-            </>
-          ) : (
-            <>
-              <h2 className="tab-title">{t.thursday}</h2>
-              <h3>{t.thursdayDetails}</h3>
-              <h4 className="max-players ">{t.thursdayMaxNumberPlayers}</h4>
-            </>
-          )}
-          <div className="table-wrapper">
-            <table className="custom-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>{t.name}</th>
-                  <th>{t.registerDate}</th>
-                  {isAdmin ? <th></th> : null}
-                </tr>
-              </thead>
-              <tbody>
-                {players
-                  .filter((p) => p.day === day)
-                  .map((p, index) => (
+      {sortedDays.map((dayData) => {
+        const players = [...(dayData.players || [])].sort(
+          (a, b) => a.timestamp - b.timestamp
+        );
+
+        const dayLabel =
+          new Date(dayData.date).toLocaleDateString(
+            `${language}-${language.toUpperCase()}`,
+            {
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            }
+          ) +
+          " | " +
+          dayData.time;
+
+        return (
+          <div key={dayData.date} className="tab-container">
+            <div className="tabs-title-wrapper">
+              {isAdmin && (
+                <DeleteButton
+                  isDayDelete
+                  day={dayData.date}
+                  onDelete={fetchData}
+                  dayLabel={dayLabel}
+                />
+              )}
+              <h2 className="tab-title">{dayLabel}</h2>
+            </div>
+
+            <h3>{dayData.location}</h3>
+            <h4 className="max-players">Max jucători: {dayData.maxPlayers}</h4>
+
+            <div className="table-wrapper">
+              <table className="custom-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>{t.name}</th>
+                    <th>{t.registerDate}</th>
+                    {isAdmin ? <th></th> : null}
+                  </tr>
+                </thead>
+                <tbody>
+                  {players.map((p, index) => (
                     <tr
+                      key={index}
                       className={`${
-                        (index + 1 > 12)
+                        index + 1 > dayData.maxPlayers
                           ? "substitute-playet-row"
                           : ""
                       }`}
-                      key={index}
                     >
                       <td>{index + 1}</td>
                       <td>{p.name}</td>
@@ -57,8 +68,8 @@ export default function Tabs({ players, fetchPlayers }) {
                         {new Date(p.timestamp).toLocaleDateString(
                           `${language}-${language.toUpperCase()}`,
                           {
-                            day: "numeric", // Ziua (ex: 2)
-                            month: "long", // Luna complet (ex: Februarie)
+                            day: "numeric",
+                            month: "long",
                           }
                         )}{" "}
                         |{" "}
@@ -68,25 +79,30 @@ export default function Tabs({ players, fetchPlayers }) {
                             hour: "2-digit",
                             minute: "2-digit",
                             second: "2-digit",
-                            hour12: false, // Format 24H
+                            hour12: false,
                           }
                         )}
                       </td>
                       {isAdmin ? (
                         <td>
-                          <DeleteButton player={p} onDelete={fetchPlayers} />
+                          <DeleteButton
+                            player={p}
+                            day={dayData.date}
+                            onDelete={fetchData}
+                          />
                         </td>
                       ) : null}
                     </tr>
                   ))}
-              </tbody>
-            </table>
-          </div>
+                </tbody>
+              </table>
+            </div>
 
-          <br></br>
-          <br></br>
-        </div>
-      ))}
+            <br />
+            <br />
+          </div>
+        );
+      })}
     </div>
   );
 }
