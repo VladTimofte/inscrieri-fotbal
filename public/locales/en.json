@@ -30,7 +30,6 @@
   "maxPlayers": "Max players",
   "location": "Location",
   "deleteDay": "Delete day",
-  "confirmResetCurrentList": "Confirm the reset of the current existing list",
   "save": "Save",
   "noEvents": "No events"
 }

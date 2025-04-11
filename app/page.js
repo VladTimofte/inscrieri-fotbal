@@ -84,13 +84,6 @@ export default function Home() {
 
   const handleResetAndCreateList = async (data) => {
     try {
-      const scheduleRef = collection(db, "data");
-
-      const snapshot = await getDocs(scheduleRef);
-      const deletions = snapshot.docs.map((docSnap) =>
-        deleteDoc(doc(db, "data", docSnap.id))
-      );
-      await Promise.all(deletions);
 
       for (const item of data) {
         await setDoc(doc(db, "data", item.date), item);

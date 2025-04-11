@@ -18,7 +18,6 @@ export default function OrganizeFootballModal({
 }) {
   const [selectedDates, setSelectedDates] = useState([]);
   const [daysData, setDaysData] = useState({});
-  const [confirmResetList, setConfirmResetList] = useState(false);
   const [errors, setErrors] = useState([]);
   const { t, language } = useTranslation();
 
@@ -90,7 +89,6 @@ export default function OrganizeFootballModal({
       if (!data.location) newErrors.push(`${t.locationRequired} ${label}.`);
     });
 
-    if (!confirmResetList) newErrors.push(t.confirmReset);
     setErrors(newErrors);
     return newErrors.length === 0;
   };
@@ -117,7 +115,7 @@ export default function OrganizeFootballModal({
             setIsOrganizeListModalOpen(true);
           }}
         >
-          <Image width={32} height={32} src="/reset_renew.png" alt="Renew" />
+          <Image width={32} height={32} src="/add.png" alt="Add" />
         </div>
       )}
       {isOrganizeListModalOpen && (
@@ -230,16 +228,6 @@ export default function OrganizeFootballModal({
                 </div>
               ))}
             </ul>
-
-            <label>
-              <input
-                type="checkbox"
-                checked={confirmResetList}
-                onChange={(e) => setConfirmResetList(e.target.checked)}
-                className="checkbox-input-modal"
-              />
-              {t.confirmResetCurrentList}
-            </label>
 
             {errors.length > 0 && (
               <div className="error-message">
