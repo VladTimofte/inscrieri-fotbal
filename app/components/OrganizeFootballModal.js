@@ -96,15 +96,12 @@ export default function OrganizeFootballModal({
   const handleSave = () => {
     if (!validate()) return;
 
-    debugger
-
     const saveData = selectedDates.map((date) => ({
       id: generateRandomId(),
       players: [],
       date: date.toLocaleDateString('en-CA'), // Do Not Change. It's the data format, no need translation!
       ...daysData[date.toDateString()],
     }));
-    debugger
     onSave(saveData);
   };
 
