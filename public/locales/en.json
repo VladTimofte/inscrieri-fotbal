@@ -31,5 +31,6 @@
   "location": "Location",
   "deleteDay": "Delete day",
   "save": "Save",
-  "noEvents": "No events"
+  "noEvents": "No events",
+  "quickAccess": "Continue from last login"
 }

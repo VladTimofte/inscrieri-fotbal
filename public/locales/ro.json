@@ -31,5 +31,6 @@
   "location": "Locație",
   "deleteDay": "Șterge ziua",
   "save": "Salvează",
-  "noEvents": "Niciun eveniment"
+  "noEvents": "Niciun eveniment",
+  "quickAccess": "Acces rapid pe baza ultimei logări"
 }
