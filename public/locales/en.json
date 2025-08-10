@@ -32,5 +32,8 @@
   "deleteDay": "Delete day",
   "save": "Save",
   "noEvents": "No events",
-  "quickAccess": "Continue from last login"
+  "quickAccess": "Continue from last login",
+  "pleaseEnterNameAndSurnameError": "Please enter your full name (first and last name).",
+  "selectAtLeastOneDayError": "Select at least one day to register.",
+  "pleaseEnterYourNameError": "Please enter your name."
 }

@@ -32,5 +32,8 @@
   "deleteDay": "Șterge ziua",
   "save": "Salvează",
   "noEvents": "Niciun eveniment",
-  "quickAccess": "Acces rapid pe baza ultimei logări"
+  "quickAccess": "Acces rapid pe baza ultimei logări",
+  "pleaseEnterNameAndSurnameError": "Te rog să introduci numele complet (nume și prenume).",
+  "selectAtLeastOneDayError": "Selectează cel puțin o zi pentru a te înscrie.",
+  "pleaseEnterYourNameError": "Te rog sa iti introduci numele."
 }

@@ -22,12 +22,17 @@ export default function SignInModal({ onSubmit, onClose, data }) {
 
   const handleSubmit = () => {
     if (!hasNameAndSurname(name)) {
-      setErrorMsg("Te rugăm să introduci numele complet (nume și prenume).");
+      setErrorMsg(t.pleaseEnterNameAndSurnameError);
       return;
     }
 
     if (selectedDates.length === 0) {
-      setErrorMsg("Selectează cel puțin o zi pentru a te înscrie.");
+      setErrorMsg(t.selectAtLeastOneDayError);
+      return;
+    }
+
+    if (name?.length >= 24) {
+      setErrorMsg(t.pleaseEnterYourNameError);
       return;
     }
 
