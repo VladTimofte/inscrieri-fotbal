@@ -15,6 +15,7 @@
   "thursdayDetails": "Santandrei | 10 Aprilie | 22:00",
   "thursdayMaxNumberPlayers": "12 Jucatori",
   "wrongPassword": "Parolă greșită!",
+  "passwordRequired": "Te rog introdu parola",
   "passwordPlaceholder": "Parola",
   "login": "Intră în aplicație",
   "userRolePlayer": "Jucator",

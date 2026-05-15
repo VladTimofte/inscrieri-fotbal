@@ -15,6 +15,7 @@
   "thursdayDetails": "Santandrei | 10 April | 22:00",
   "thursdayMaxNumberPlayers": "12 Players",
   "wrongPassword": "Wrong Password!",
+  "passwordRequired": "Please input password",
   "passwordPlaceholder": "Password",
   "login": "Login",
   "userRolePlayer": "Player",
