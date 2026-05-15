@@ -12,7 +12,7 @@
     "date-fns": "^4.1.0",
     "firebase": "^11.3.1",
     "inscrieri-fotbal": "file:",
-    "next": "15.1.7",
+    "next": "15.1.11",
     "react": "^19.0.0",
     "react-datepicker": "^8.2.1",
     "react-dom": "^19.0.0"
